@@ -1,0 +1,50 @@
+application: dict-admin
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+builtins:
+- remote_api: on
+
+inbound_services:
+- warmup
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: PIL
+  version: latest
+- name: django
+  version: latest
+
+handlers:
+- url: /_ah/queue/deferred
+  script: djangoappengine.deferred.handler.application
+  login: admin
+
+- url: /_ah/stats/.*
+  script: djangoappengine.appstats.application
+
+- url: /blank.html
+  static_files: blank.html
+  upload: blank.html
+
+- url: /media/admin
+  static_dir: django/contrib/admin/media/
+  expiration: '0'
+
+- url: /media
+  static_dir: _generated_media/
+  expiration: '365d'
+
+- url: /dict
+  static_dir: dict-client/dict
+  expiration: '0'
+
+- url: /lib
+  static_dir: dict-client/lib
+  expiration: '0'
+
+- url: /.*
+  script: djangoappengine.main.application

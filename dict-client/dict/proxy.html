@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Ajax dictionary proxy">
+	<link rel="shortcut icon" href="//www.google-analytics.com/favicon.ico" />
+	<title>Proxy Page of Dict</title>
+	<link rel="stylesheet" href="./dict_proxy.css">
+	<script src="./dict_proxy.js"></script>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="/lib/assets/html5shiv.js"></script>
+	<script src="/lib/assets/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body id='__TOP__'>
+	<!-- Static navbar -->
+	<div class="navbar navbar-static-top">
+		<div class="container">
+			<!--<a class="navbar-brand" href="#">Project name</a>-->
+			<form id='__search_form__'>
+				<input type="text" id='__search__' placeholder="Search" class="form-control">
+			</form>
+
+			<div class="nav-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a target='_blank' href="http://dict-admin.appspot.com">Help Online</a></li>
+					<li class="dropdown active">
+					<a id='__dict_selected__' href="#" class="dropdown-toggle" data-toggle="dropdown">Select Engine - <span></span><b class="caret"></b></a>
+					<ul id='__dict_types__' class="dropdown-menu">
+						<li class='active'><a href="#" value='auto'>I'm Feeling Lucky</a></li>
+						<li class="divider"></li>
+						<li class="nav-header">☄ Search Engine</li>
+						<li><a href="#" value='google'>Google</a></li>
+						<li class="disabled"><a href="#" value='bing'>Bing(TODO)</a></li>
+						<li class="divider"></li>
+						<li class="nav-header">☄ Professional Site</li>
+						<li><a href="#" value='auto_wiki_jp'>Wikipedia</a></li>
+						<li class="disabled"><a href="#" value='auto_ewords'>e-words(TODO)</a></li>
+						<li class="divider"></li>
+						<li class="nav-header">☄ Dictionary(英←→和)</li>
+						<li><a href="#" value='auto_weblio'>Weblio辞書</a></li>
+						<li class="disabled"><a href="#" value='yahoo'>Yahoo!辞書(TODO)</a></li>
+						<li class="divider"></li>
+						<li class="nav-header">☄ Dictionary(日←→中)</li>
+						<li class="disabled"><a href="#" value='xiaoD'>XiaoD辞書(TODO)</a></li>
+						<li class="disabled"><a href="#" value='eXcite'>eXcite辞書(TODO)</a></li>
+						<li class="divider"></li>
+					</ul>
+					</li><!--/.dropdown☂-->
+				</ul>
+			</div><!--/.nav-collapse -->
+
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+		</div>
+	</div>
+	<div id='__explain_wrapper__' class='container'></div>
+
+	<div id='__loading__' class='container hidden'></div>
+
+	<div style='position:fixed;right:0;bottom:0;z-index:99999;'>
+		<a id="__go_top__" href="#__TOP__" style="color: #0066CC;text-decoration: underline;">↑</a>
+	</div>
+
+	<div class='hidden alert alert-warning' id='__error_msg__'><br>
+		<h4>Connection Error</h4>
+		<p>Seems your network is not ready. Please: </p>
+		<ol>
+			<li><a class='retry' href="javascript:void(0);">Retry</a> again</li>
+ 			<li>Select another search engine from menu.</li>
+			<li>See more <a target='_blank' href="http://dict-admin.appspot.com">Help Online</a>.</li>
+		</ol>
+	</div>
+	<div class='hidden alert alert-warning' id='__timeout_msg__'>
+		<h4>Connection Error</h4>
+		<p>Connect timeout. Please <button class='retry btn btn-warning btn-xs'>Retry</button>.</p>
+	</div>
+
+	<!-- debug info -->
+	<div class='hidden' id='__debug__'>
+		<hr style="margin-top:100px"/>
+		<a href='#' id='__debugSelf__' target='_blank'>Debug proxy page</a> | <a href='#' id='__debugAjax__' target='_blank'>Debug direct link</a>
+	</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45384668-1', 'python-ok.appspot.com');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
