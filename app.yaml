@@ -46,5 +46,9 @@ handlers:
   static_dir: dict-client/lib
   expiration: '0'
 
+- url: /build
+  static_dir: dict-client/build
+  expiration: '0'
+
 - url: /.*
   script: djangoappengine.main.application
